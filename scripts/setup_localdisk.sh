@@ -6,4 +6,5 @@
 
 sudo mkdir /data
 sudo chmod 777 /data
+sudo chown $USER /data
 sudo /usr/local/etc/emulab/mkextrafs.pl /data
