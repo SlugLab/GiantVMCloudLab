@@ -1,0 +1,32 @@
+"""###Ubuntu 20.04 image (will be customized) to use with GiantVM
+See https://github.com/GiantVM/giantvm.github.io for more details on the GiantVM project
+
+Instructions:
+[Add additional details to configure and run GiantVM in the future]"""
+
+#
+# NOTE: This code was machine converted. An actual human would not
+#       write code like this!
+#
+
+# Import the Portal object.
+import geni.portal as portal
+# Import the ProtoGENI library.
+import geni.rspec.pg as pg
+# Import the Emulab specific extensions.
+import geni.rspec.emulab as emulab
+
+# Create a portal object,
+pc = portal.Context()
+
+# Create a Request object to start building the RSpec.
+request = pc.makeRequestRSpec()
+
+# Node node-0
+node_0 = request.RawPC('node-0')
+node_0.hardware_type = 'c220g5'
+node_0.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU20-64-STD'
+
+
+# Print the generated rspec
+pc.printRequestRSpec(request)
