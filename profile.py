@@ -25,7 +25,7 @@ request = pc.makeRequestRSpec()
 # Node node-0
 node_0 = request.RawPC('node-0')
 node_0.hardware_type = 'c220g5'
-node_0.disk_image = 'urn:publicid:IDN+emulab.net+image+emulab-ops//UBUNTU20-64-STD'
+node_0.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+dift-PG0:GiantVMClusterTests'
 
 
 # Print the generated rspec
