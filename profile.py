@@ -24,7 +24,7 @@ request = pc.makeRequestRSpec()
 
 # Node node-0
 node_0 = request.RawPC('node-0')
-node_0.hardware_type = 'c240g2'
+node_0.hardware_type = 'c4130'
 node_0.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+dift-PG0:GiantVMClusterTests'
 
 node_0.addService(pg.Execute(shell="sh", command="/local/repository/scripts/setup_privkey.sh"))
