@@ -12,4 +12,4 @@ chmod 600 $HOME/.ssh/id_rsa
 ssh-keygen -y -f $HOME/.ssh/id_rsa > $HOME/.ssh/id_rsa.pub
 
 ## make it so the private key gets you login access:
-grep -q -f $HOME/.ssh/id_rsa.pub $HOME/.ssh/authorized_keys || $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+grep -q -f $HOME/.ssh/id_rsa.pub $HOME/.ssh/authorized_keys || cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
