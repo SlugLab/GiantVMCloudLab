@@ -24,7 +24,7 @@ request = pc.makeRequestRSpec()
 
 # Node node-0
 node_0 = request.RawPC('node-0')
-node_0.hardware_type = 'c220g1'
+node_0.hardware_type = 'c420g2'
 node_0.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+dift-PG0:GiantVMClusterTests'
 
 
