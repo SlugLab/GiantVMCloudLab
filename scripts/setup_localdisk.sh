@@ -8,4 +8,4 @@ sudo mkdir /data
 sudo chmod 777 /data
 sudo /usr/local/etc/emulab/mkextrafs.pl /data
 
-sudo chown -R $USER /data
+sudo chmod 777 -R /data
