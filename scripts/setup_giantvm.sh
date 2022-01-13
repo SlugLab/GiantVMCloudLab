@@ -4,6 +4,9 @@ LOC=/data/local/
 IMG=$LOC/ubuntu.img
 DATA=$LOC/user_data.img
 
+## change permitions on kvm
+chmod 777 /dev/kvm
+
 if [ ! -f $IMG ]; then
     wget -O $IMG https://cloud-images.ubuntu.com/releases/focal/release-20220104/ubuntu-20.04-server-cloudimg-amd64.img
 
