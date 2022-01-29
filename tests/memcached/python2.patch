@@ -1,0 +1,10 @@
+diff --git a/bin/ycsb b/bin/ycsb
+index b5c85e35..a9967b4c 100755
+--- a/bin/ycsb
++++ b/bin/ycsb
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python2
+ #
+ # Copyright (c) 2012 - 2020 YCSB contributors. All rights reserved.
+ #
