@@ -19,7 +19,7 @@ popd
 ## requirements for YCSB
 sudo apt install -y maven openjdk-8-jdk
 
-git clone git@github.com:brianfrankcooper/YCSB.git
+git clone https://github.com/brianfrankcooper/YCSB.git
 pushd YCSB
 git apply ../python2.patch
 mvn -pl site.ycsb:memcached-binding -am clean package

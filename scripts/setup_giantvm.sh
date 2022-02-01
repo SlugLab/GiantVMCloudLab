@@ -3,6 +3,8 @@ LOC=/data/local/
 
 IMG=$LOC/ubuntu.img
 DATA=$LOC/user_data.img
+USER=$LOC/user.dat
+SET=$LOC/.set
 
 ## change permitions on kvm
 sudo chmod 777 /dev/kvm
@@ -20,19 +22,21 @@ if [ ! -f $IMG ]; then
 fi 
 
 if [ ! -f $DATA ]; then
-    echo "#cloud-config" >> user.yaml
+    rm $USER
+    touch $USER
+    echo "#cloud-config" >> $USER
 #    echo "ssh_pwauth: True" >> user.yaml
-    echo "users:" >> user.yaml
+    echo "users:" >> $USER
 #    printf "  - default\n" >> user.yaml
-    printf "  - name: gvm\n" >> user.yaml
-    printf "    sudo: ALL=(ALL) NOPASSWD:ALL\n" >> user.yaml
+    printf "  - name: gvm\n" >> $USER
+    printf "    sudo: ALL=(ALL) NOPASSWD:ALL\n" >> $USER
     #    printf "  passwd: asdf\n" >> user.yaml
-    printf "    groups: sudo\n" >> user.yaml
-    printf "    shell: /bin/bash\n" >> user.yaml
-    printf "    plain_text_passwd: gvm\n" >> user.yaml
-    printf "    ssh_authorized_keys:\n" >> user.yaml
-    printf "      %s" "- " >> user.yaml
-    cat /users/arquinn/.ssh/id_rsa.pub >> user.yaml
+    printf "    groups: sudo\n" >> $USER
+    printf "    shell: /bin/bash\n" >> $USER
+    printf "    plain_text_passwd: gvm\n" >> $USER
+    printf "    ssh_authorized_keys:\n" >> $USER
+    printf "      %s" "- " >> $USER
+    cat /users/arquinn/.ssh/id_rsa.pub >> $USER
 
 
     #printf "runcmd:\n" >> user.yaml
@@ -41,7 +45,23 @@ if [ ! -f $DATA ]; then
  #   echo "chpasswd: { expire: False }" >> user.yaml
 
 
-    cloud-localds $DATA user.yaml
-#    rm user.yaml
+    cloud-localds $DATA $USER
 fi
+
+
+### setup crap with libvirt:
+# I don't know why the image doesn't seem to capture this correctly...
+if [ ! -f $SET ]; then
+    sudo apt -y --reinstall install libvirt-daemon-system
+    sudo systemctl start libvirtd
+    sudo virsh net-start default
+
+    sudo apt install -y python2
+
+    touch $SET
+fi
+
+
+
+
 

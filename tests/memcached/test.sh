@@ -35,13 +35,14 @@ echo "Threads, Throughput"
 threads=1
 while [ $threads -le $max_threads ]
 do
+    ### Start server with $threads threads and 4G memory
     ./memcached-1.6.13/memcached -t $threads -m 4096 > memcached.log 2> memcached.err &
     PID=$!
 
     printf "$threads,"
     pushd YCSB
     ./bin/ycsb load memcached -s -P workloads/workloada -p memcached.hosts=localhost -p recordcount=1000000 -threads 100 2>1 > /dev/null
-    ./bin/ycsb run memcached -s -P workloads/workloada -p memcached.hosts=localhost -p recordcount=1000000 -p operationcount=1000000 -threads 100  2>1\
+    ./bin/ycsb run memcached -s -P workloads/workloada -p memcached.hosts=localhost -p recordcount=1000000 -p operationcount=1000000 -threads 100 2>1\
 	| grep "\[OVERALL\], T" | awk -F',' '{print $3}'
     popd
     kill $PID
