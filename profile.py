@@ -25,7 +25,7 @@ request = pc.makeRequestRSpec()
 # Node node-0
 node_0 = request.RawPC('node-0')
 #node_0.hardware_type = 'c4130'  It's important that we're in the wisc datacenter, but otherwise we can use any available host I think?
-node_0.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+dift-PG0:GiantVM-Single-Node'
+node_0.disk_image = 'urn:publicid:IDN+wisc.cloudlab.us+image+DVM-PG0:GiantVM-Single-Node'
 
 node_0.addService(pg.Execute(shell="sh", command="/local/repository/scripts/setup_privkey.sh"))
 node_0.addService(pg.Execute(shell="sh", command="/local/repository/scripts/setup_localdisk.sh"))
