@@ -8,6 +8,7 @@
 #### install memcached
 ## requirements for memcached
 sudo apt install -y libevent-dev
+sudo apt install python2
 
 wget https://memcached.org/files/memcached-1.6.13.tar.gz
 tar -xf memcached-1.6.13.tar.gz
