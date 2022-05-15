@@ -13,7 +13,7 @@ cp ./data-gen.sh ./Metis/data_tool/
 pushd Metis 
     autoreconf -ivf && ./configure && make
 
-    # Download and extract required dataset
+    # Download and extract required dataset for centos --no-check-certificate
     wget http://pdos.csail.mit.edu/metis/data.tar.gz
     tar -xf ./data.tar.gz
 
