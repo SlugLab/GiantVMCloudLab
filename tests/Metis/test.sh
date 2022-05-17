@@ -11,7 +11,7 @@ do
         while [ $threads -le $max_threads ]
         do
                 echo "#Threads:" $threads
-                time ./obj/linear_regression ./data/lr_40GB.txt -p $threads > metis_$threads.log 2> metis_$threads.err
+                time ./obj/linear_regression ./data/lr_4GB.txt -p $threads > metis_$threads.log 2> metis_$threads.err
                 threads=$(($threads * 2))
         done
         trial=$(($trial + 1))
